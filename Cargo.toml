@@ -17,5 +17,3 @@ inherits = "dev"
 
 [profile.android-dev]
 inherits = "dev"
-# manganis = { path = "packages/manganis/manganis", version = "0.6.2" }
-# dioxus = { path = "packages/dioxus", version = "0.6.2" }

@@ -39,15 +39,14 @@ pub fn RightArrowIcon() -> Element {
 #[component]
 pub fn UnderConstruction() -> Element {
     rsx! {
-        div {
-            class: "flex flex-col w-full items-center justify-center",
+        div { class: "flex flex-col w-full items-center justify-center",
             img {
                 class: "w-10 h-10 rounded-full",
                 src: config::LOGO_RUST,
                 alt: "Igor Boiko Image",
             }
             div {
-                h1 { "🦀 Under construction 🦀"}
+                h1 { "🦀 Under construction 🦀" }
             }
         }
     }

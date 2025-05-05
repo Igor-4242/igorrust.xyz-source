@@ -1,0 +1,11 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".rs$",
+                "isAsync": false,
+                "cmd": "dx fmt"
+            },
+        ]
+    }
+}
