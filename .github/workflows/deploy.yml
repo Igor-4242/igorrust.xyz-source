@@ -54,7 +54,10 @@ jobs:
         git config user.email "actions@github.com"
         git add .
         git commit -m "Update GitHub Pages"
-        git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git" main
+        git remote add origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git"
+        git fetch
+        git pull
+        git push --force origin main
 
     - name: Clean up
       run: cd -

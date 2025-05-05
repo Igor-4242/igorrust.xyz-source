@@ -5,6 +5,29 @@ use dioxus::prelude::*;
 use crate::config;
 
 #[component]
+pub fn MainCard() -> Element {
+    rsx! {
+
+        header {}
+
+        body {
+            UnderConstruction {}
+            UnderConstruction {}
+            UnderConstruction {}
+            UnderConstruction {}
+        }
+
+        footer {
+        }
+    }
+}
+
+#[component]
+pub fn Favorites() -> Element {
+    rsx! { "favorites!" }
+}
+
+#[component]
 pub fn StacksIcon() -> Element {
     rsx! {
         svg {
@@ -51,3 +74,13 @@ pub fn UnderConstruction() -> Element {
         }
     }
 }
+
+// #[component]
+// pub fn ThiccMainRow(children: Children) -> Element {
+//     rsx! {
+//         div {
+//             class: "flex flex-col w-full items-center justify-center px-40",
+//             children,
+//         }
+//     }
+// }

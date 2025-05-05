@@ -6,6 +6,9 @@ pub use components::*;
 mod config;
 pub use config::*;
 
+mod routes;
+pub use routes::*;
+
 fn main() {
     dioxus::launch(app);
 }
@@ -14,18 +17,6 @@ fn app() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: asset!("/public/tailwind.css") }
         document::Link { rel: "stylesheet", href: asset!("/public/compound_styles.css") }
-
-
-
-        header {}
-
-        body {
-            UnderConstruction {}
-            UnderConstruction {}
-            UnderConstruction {}
-            UnderConstruction {}
-        }
-
-        footer {}
+        Router::<routes::Route> {}
     }
 }

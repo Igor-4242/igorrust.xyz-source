@@ -3,7 +3,7 @@
         "commands": [
             {
                 "match": ".rs$",
-                "isAsync": false,
+                "isAsync": true,
                 "cmd": "dx fmt"
             },
         ]

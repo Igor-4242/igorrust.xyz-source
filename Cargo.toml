@@ -4,7 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-dioxus = { version = "0.6.3", features = ["web"] }
+dioxus = { version = "0.6.3", features = ["web", "router"] }
 
 [profile]
 
