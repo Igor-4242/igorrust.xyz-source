@@ -32,30 +32,46 @@ pub fn MainCard() -> Element {
 
         UnderConstruction {}
 
-        body {
-            div { class: "flex flex-col w-full items-center justify-center",
-                AvatarAndRings {}
-                div { class: "flex flex-col w-full", justify_content: "stretch",
+        section {
+            div { class: "flex flex-row w-full items-center justify-center",
+                div {
+                    class: "flex flex-col items-center justify-center",
+                    width: "50%",
+                    AvatarAndRings {}
+                }
+                div { width: "50%",
                     div {
-                        h1 { "Igor Boiko" }
+                        class: "flex flex-col w-full",
+                        justify_content: "stretch",
                         div {
-                            h1 { "Rust Dev" }
-                        }
-                    }
-                    div {
-                        h2 { "About" }
-                        div {
-                            p {
-                                "Velitlaborum odit ratione, totam, qui neque! Laborumelit qui iure culpa, tempore, ipsum. Quisamet, lorem, eveniet, velit ad dicta? Remquia, animi, odit, quasi sit quasi."
+                            H1 { "Igor Boiko" }
+                            div {
+                                class: "flex flex-row",
+                                justify_content: "end",
+                                H1 { "Rust Dev" }
                             }
                         }
-                    }
-                    div {
-                        h2 { "Get in touch" }
                         div {
-                            p { "Gmail" }
-                            p { "Linkedin" }
-                            p { "Github" }
+                            H2 { "About" }
+                            div { class: "flex flex-row",
+                                div { width: "15%" }
+                                P {
+                                    "Velitlaborum odit ratione, totam, qui neque! Laborumelit qui iure culpa, tempore, ipsum. Quisamet, lorem, eveniet, velit ad dicta? Remquia, animi, odit, quasi sit quasi."
+                                }
+                                div { width: "15%" }
+                            }
+                        }
+                        div {
+                            H2 { "Get in touch" }
+                            div {
+                                class: "flex flex-row",
+                                justify_content: "end",
+                                div { class: "flex flex-row",
+                                    P { "Gmail" }
+                                    P { "Linkedin" }
+                                    P { "Github" }
+                                }
+                            }
                         }
                     }
                 }
@@ -104,7 +120,7 @@ pub fn H1(children: Element) -> Element {
 pub fn H2(children: Element) -> Element {
     rsx! {
         div {
-            h1 { font_size: "20px", font_weight: "semibold", color: "black", {children} }
+            h2 { font_size: "20px", font_weight: "semibold", color: "black", {children} }
         }
     }
 }
@@ -113,7 +129,7 @@ pub fn H2(children: Element) -> Element {
 pub fn P(children: Element) -> Element {
     rsx! {
         div {
-            h1 { font_size: "13px", font_weight: "light", color: "black", {children} }
+            p { font_size: "13px", font_weight: "light", color: "black", {children} }
         }
     }
 }
@@ -121,7 +137,12 @@ pub fn P(children: Element) -> Element {
 #[component]
 pub fn AvatarAndRings() -> Element {
     rsx! {
-        div { height: "100px", width: "100px", background_color: "red" }
+        div {
+            height: "400px",
+            width: "400px",
+            background_color: "red",
+            class: "rounded-full",
+        }
     }
 }
 
@@ -160,14 +181,21 @@ pub fn RightArrowIcon() -> Element {
 #[component]
 pub fn UnderConstruction() -> Element {
     rsx! {
-        div { class: "flex flex-col w-full items-center justify-center",
+        div {
+            class: "flex flex-row w-full items-center justify-center",
+            padding: "10px",
+            margin: "10px",
+            background_color: "yellow",
+            border_color: "black",
+            border_width: "5px",
             img {
                 class: "w-10 h-10 rounded-full",
                 src: config::LOGO_RUST,
                 alt: "Igor Boiko Image",
             }
+            div { width: "20px" }
             div {
-                h1 { "🦀 Under construction 🦀" }
+                h1 { "🦀 Website is under construction 🦀" }
             }
         }
     }
