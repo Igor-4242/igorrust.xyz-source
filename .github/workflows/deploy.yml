@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages With Dioxus
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Rust
+      uses: actions/setup-rust@v1
+      with:
+        rust-version: stable
+
+    - name: Check Cargo
+      run: cargo check
+
+    - name: Install dioxus build tool
+      run: |
+        cargo install cargo-binstall
+        cargo binstall dioxus-cli
+
+    # - name: Build Documentation
+    #   run: cargo doc --no-deps --release
+
+    - name: Build Project with dioxus
+      run: dx build --release
+
+    - name: Copy Files
+      run: |
+        rm -rf ../Igor-4242.github.io/*
+        cp -r ./target/dx/igorrust/release/web/public/* ../Igor-4242.github.io/
+
+    - name: Deploy to GitHub Pages
+      run: |
+        cd ../Igor-4242.github.io/
+        echo igorrust.xyz > CNAME
+        echo "Hosted on [igorrust.xyz](https://igorrust.xyz)" >> README.md
+        git init
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Update GitHub Pages"
+        git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git" main
+
+    - name: Clean up
+      run: cd -
