@@ -8,16 +8,50 @@ use crate::config;
 pub fn MainCard() -> Element {
     rsx! {
 
-        header {}
-
-        body {
-            UnderConstruction {}
-            UnderConstruction {}
-            UnderConstruction {}
-            UnderConstruction {}
+        header {
+            ThiccMainRow {
+                div { class: "flex flex-row items-center",
+                    div { class: "flex flex-row w-full items-center justify-center",
+                        p { "Cumqueipsum" }
+                    }
+                    div { width: "34px" }
+                    div { class: "flex flex-row w-full items-center justify-center",
+                        p { "dolore" }
+                    }
+                    div { width: "34px" }
+                    div { class: "flex flex-row w-full items-center justify-center",
+                        p { "Quosratione" }
+                    }
+                    div { width: "34px" }
+                    div { class: "flex flex-row w-full items-center justify-center",
+                        p { "Nobissint" }
+                    }
+                }
+            }
         }
 
+        body { UnderConstruction {} }
+
         footer {
+            ThiccMainRow {
+                p {
+                    "Cumqueipsum dolore nihil at, rem sunt. Quosratione, ipsum ad unde quo, ut? Sitquae vitae, laborum ad, cumque et. Nobissint dolores sed, illo dicta, sunt. "
+                }
+            }
+        }
+    }
+}
+
+#[component]
+pub fn ThiccMainRow(children: Element) -> Element {
+    rsx! {
+        div {
+            class: "flex flex-col w-full items-center justify-center px-40",
+            padding_top: "20px",
+            padding_bottom: "20px",
+            padding_left: "20%",
+            padding_right: "20%",
+            {children}
         }
     }
 }
@@ -74,13 +108,3 @@ pub fn UnderConstruction() -> Element {
         }
     }
 }
-
-// #[component]
-// pub fn ThiccMainRow(children: Children) -> Element {
-//     rsx! {
-//         div {
-//             class: "flex flex-col w-full items-center justify-center px-40",
-//             children,
-//         }
-//     }
-// }
