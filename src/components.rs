@@ -30,7 +30,37 @@ pub fn MainCard() -> Element {
             }
         }
 
-        body { UnderConstruction {} }
+        UnderConstruction {}
+
+        body {
+            div { class: "flex flex-col w-full items-center justify-center",
+                AvatarAndRings {}
+                div { class: "flex flex-col w-full", justify_content: "stretch",
+                    div {
+                        h1 { "Igor Boiko" }
+                        div {
+                            h1 { "Rust Dev" }
+                        }
+                    }
+                    div {
+                        h2 { "About" }
+                        div {
+                            p {
+                                "Velitlaborum odit ratione, totam, qui neque! Laborumelit qui iure culpa, tempore, ipsum. Quisamet, lorem, eveniet, velit ad dicta? Remquia, animi, odit, quasi sit quasi."
+                            }
+                        }
+                    }
+                    div {
+                        h2 { "Get in touch" }
+                        div {
+                            p { "Gmail" }
+                            p { "Linkedin" }
+                            p { "Github" }
+                        }
+                    }
+                }
+            }
+        }
 
         footer {
             ThiccMainRow {
@@ -59,6 +89,40 @@ pub fn ThiccMainRow(children: Element) -> Element {
 #[component]
 pub fn Favorites() -> Element {
     rsx! { "favorites!" }
+}
+
+#[component]
+pub fn H1(children: Element) -> Element {
+    rsx! {
+        div {
+            h1 { font_size: "48px", font_weight: "extrabold", color: "black", {children} }
+        }
+    }
+}
+
+#[component]
+pub fn H2(children: Element) -> Element {
+    rsx! {
+        div {
+            h1 { font_size: "20px", font_weight: "semibold", color: "black", {children} }
+        }
+    }
+}
+
+#[component]
+pub fn P(children: Element) -> Element {
+    rsx! {
+        div {
+            h1 { font_size: "13px", font_weight: "light", color: "black", {children} }
+        }
+    }
+}
+
+#[component]
+pub fn AvatarAndRings() -> Element {
+    rsx! {
+        div { height: "100px", width: "100px", background_color: "red" }
+    }
 }
 
 #[component]

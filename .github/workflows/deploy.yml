@@ -56,6 +56,7 @@ jobs:
         git commit -m "Update GitHub Pages"
         git remote add origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git"
         git fetch
+        git config pull.rebase true   
         git pull origin main
         git push --force origin main
 
