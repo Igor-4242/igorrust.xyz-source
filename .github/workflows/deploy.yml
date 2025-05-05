@@ -53,7 +53,6 @@ jobs:
 
     - name: Copy Files
       run: |
-        rm -rf ./*
         cp -r ../target/dx/igorrust/release/web/public/* ./Igor-4242.github.io/
         echo igorrust.xyz > CNAME
         echo "Hosted on [igorrust.xyz](https://igorrust.xyz)" >> README.md
