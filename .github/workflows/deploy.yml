@@ -53,7 +53,7 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add .
-        git branch -m main
+        git checkout -b main
         git commit -m "Update GitHub Pages"
         git remote add origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git"
         git fetch

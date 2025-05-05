@@ -12,7 +12,10 @@ pub fn MainCard() -> Element {
         header {
 
             ThiccMainRow {
-                div { class: "flex flex-row items-center", gap: "34px",
+                div {
+                    class: "flex flex-col md:flex-row items-center",
+                    gap: "34px",
+
                     div { class: "flex flex-row w-full items-center justify-center",
                         NavLink { href: "", "Cumqueipsum" }
                     }
@@ -27,6 +30,7 @@ pub fn MainCard() -> Element {
                     }
                 }
             }
+        
         }
 
         section {
@@ -170,7 +174,7 @@ pub fn NavLink(href: Option<String>, children: Element) -> Element {
 pub fn AvatarAndRings() -> Element {
     const STEP: f32 = 60.0;
     const OFFSET: isize = 5;
-    const AMMOUNT_OF_CIRCLES: isize = 25;
+    const AMMOUNT_OF_CIRCLES: isize = 15;
 
     rsx! {
         div {
@@ -246,14 +250,22 @@ pub fn UnderConstruction() -> Element {
             class: "flex flex-row w-full items-center justify-center",
             padding: "10px",
             background_color: "yellow",
+            gap: "30px",
+
             img {
                 class: "w-10 h-10 rounded-full",
                 src: config::LOGO_RUST,
                 alt: "Igor Boiko Image",
             }
-            div { width: "20px" }
+
             div {
-                h1 { "🦀 Website is under construction 🦀" }
+                h1 { "Website is under construction" }
+            }
+
+            img {
+                class: "w-10 h-10 rounded-full",
+                src: config::LOGO_RUST,
+                alt: "Igor Boiko Image",
             }
         }
     }
