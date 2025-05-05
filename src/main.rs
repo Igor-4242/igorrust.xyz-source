@@ -15,6 +15,8 @@ fn app() -> Element {
         document::Link { rel: "stylesheet", href: asset!("/public/tailwind.css") }
         document::Link { rel: "stylesheet", href: asset!("/public/compound_styles.css") }
 
+
+
         header {}
 
         body {

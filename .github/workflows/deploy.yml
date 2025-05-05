@@ -41,6 +41,7 @@ jobs:
     - name: Copy Files
       run: |
         rm -rf ../Igor-4242.github.io/*
+        mkdir -p ../Igor-4242.github.io/
         cp -r ./target/dx/igorrust/release/web/public/* ../Igor-4242.github.io/
 
     - name: Deploy to GitHub Pages
