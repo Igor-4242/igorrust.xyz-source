@@ -38,27 +38,31 @@ jobs:
     - name: Build Project with dioxus
       run: dx build --release
 
-    - name: Copy Files
+    - name: Init Git
       run: |
-        rm -rf ../Igor-4242.github.io/*
         mkdir -p ../Igor-4242.github.io/
-        cp -r ./target/dx/igorrust/release/web/public/* ../Igor-4242.github.io/
-
-    - name: Deploy to GitHub Pages
-      run: |
         cd ../Igor-4242.github.io/
-        echo igorrust.xyz > CNAME
-        echo "Hosted on [igorrust.xyz](https://igorrust.xyz)" >> README.md
         git init
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add .
         git checkout -b main
-        git commit -m "Update GitHub Pages"
         git remote add origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/Igor-4242/Igor-4242.github.io.git"
         git fetch
         git config pull.ff only       
         git pull origin main
+
+    - name: Copy Files
+      run: |
+        rm -rf ./*
+        cp -r ../target/dx/igorrust/release/web/public/* ./Igor-4242.github.io/
+        echo igorrust.xyz > CNAME
+        echo "Hosted on [igorrust.xyz](https://igorrust.xyz)" >> README.md
+        # mkdir -p ../Igor-4242.github.io/
+
+    - name: Push Git
+      run: |
+        git add .
+        git commit -m "Update GitHub Pages"
         git push origin main --force
 
     - name: Clean up

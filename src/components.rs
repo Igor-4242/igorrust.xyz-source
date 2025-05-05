@@ -2,7 +2,7 @@
 
 use dioxus::prelude::*;
 
-use crate::{config, math};
+use crate::{config, engine, math};
 
 #[component]
 pub fn MainCard() -> Element {
@@ -30,7 +30,6 @@ pub fn MainCard() -> Element {
                     }
                 }
             }
-        
         }
 
         section {
@@ -176,6 +175,8 @@ pub fn AvatarAndRings() -> Element {
     const OFFSET: isize = 5;
     const AMMOUNT_OF_CIRCLES: isize = 15;
 
+    // let engine = use_context::<Signal<engine::Engine>>();
+
     rsx! {
         div {
             class: "flex items-center justify-center",
@@ -195,7 +196,6 @@ pub fn AvatarAndRings() -> Element {
                             class: "rounded-full",
                             z_index: i * -1,
                             opacity: math::map_range(0.0, AMMOUNT_OF_CIRCLES as f32, i as f32, 1.0, 0.0),
-                        
                             if i == OFFSET + 0 {
                                 img {
                                     class: "w-full h-full object-cover object-center",
