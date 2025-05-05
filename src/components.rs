@@ -14,16 +14,16 @@ pub fn MainCard() -> Element {
             ThiccMainRow {
                 div { class: "flex flex-row items-center", gap: "34px",
                     div { class: "flex flex-row w-full items-center justify-center",
-                        p { "Cumqueipsum" }
+                        NavLink { href: "", "Cumqueipsum" }
                     }
                     div { class: "flex flex-row w-full items-center justify-center",
-                        p { "dolore" }
+                        NavLink { href: "", "dolore" }
                     }
                     div { class: "flex flex-row w-full items-center justify-center",
-                        p { "Quosratione" }
+                        NavLink { href: "", "Quosratione" }
                     }
                     div { class: "flex flex-row w-full items-center justify-center",
-                        p { "Nobissint" }
+                        NavLink { href: "", "Nobissint" }
                     }
                 }
             }
@@ -156,13 +156,42 @@ pub fn P(children: Element) -> Element {
 }
 
 #[component]
-pub fn AvatarAndRings() -> Element {
+pub fn NavLink(href: Option<String>, children: Element) -> Element {
     rsx! {
         div {
-            height: "350px",
-            width: "350px",
-            background_color: "#D9D9D9",
-            class: "rounded-full",
+            a {
+                font_size: "18px",
+                font_weight: "regular",
+                color: "black",
+                href,
+                {children}
+            }
+        }
+    }
+}
+
+#[component]
+pub fn AvatarAndRings() -> Element {
+    const STEP: f32 = 60.0;
+
+    rsx! {
+        div {
+            class: "flex items-center justify-center",
+            height: "400px",
+            width: "400px",
+            position: "relative",
+
+            for i in 2..10 {
+                div {
+                    position: "absolute",
+                    height: format!("{}px", STEP * i as f32),
+                    width: format!("{}px", STEP * i as f32),
+                    background_color: if i as f32 % 2.0 == 0.0 { "black" } else { "#D9D9D9" },
+                    class: "rounded-full",
+                    z_index: i * -1,
+                }
+            }
+        
         }
     }
 }
