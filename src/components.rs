@@ -7,43 +7,58 @@ use crate::config;
 #[component]
 pub fn MainCard() -> Element {
     rsx! {
+        UnderConstruction {}
 
         header {
+
             ThiccMainRow {
-                div { class: "flex flex-row items-center",
+                div { class: "flex flex-row items-center", gap: "34px",
                     div { class: "flex flex-row w-full items-center justify-center",
                         p { "Cumqueipsum" }
                     }
-                    div { width: "34px" }
                     div { class: "flex flex-row w-full items-center justify-center",
                         p { "dolore" }
                     }
-                    div { width: "34px" }
                     div { class: "flex flex-row w-full items-center justify-center",
                         p { "Quosratione" }
                     }
-                    div { width: "34px" }
                     div { class: "flex flex-row w-full items-center justify-center",
                         p { "Nobissint" }
                     }
                 }
             }
+        
         }
 
-        UnderConstruction {}
-
         section {
-            div { class: "flex flex-row w-full items-center justify-center",
+            div {
+                class: "flex flex-col md:flex-row w-full items-center justify-center",
+                padding_top: "50px",
+                padding_bottom: "50px",
+
                 div {
                     class: "flex flex-col items-center justify-center",
                     width: "50%",
-                    AvatarAndRings {}
+
+                    div {
+                        class: "flex flex-col items-center justify-center",
+                        max_width: "404px",
+                        min_width: "265px",
+
+                        AvatarAndRings {}
+                    }
                 }
+
                 div { width: "50%",
                     div {
+                        class: "flex flex-col",
+                        gap: "28px",
                         class: "flex flex-col w-full",
                         justify_content: "stretch",
-                        div {
+                        max_width: "404px",
+                        min_width: "265px",
+
+                        div { class: "flex flex-col",
                             H1 { "Igor Boiko" }
                             div {
                                 class: "flex flex-row",
@@ -51,39 +66,45 @@ pub fn MainCard() -> Element {
                                 H1 { "Rust Dev" }
                             }
                         }
-                        div {
+
+                        div { class: "flex flex-col", gap: "6px",
                             H2 { "About" }
                             div { class: "flex flex-row",
-                                div { width: "15%" }
+                                div { width: "30%" }
                                 P {
                                     "Velitlaborum odit ratione, totam, qui neque! Laborumelit qui iure culpa, tempore, ipsum. Quisamet, lorem, eveniet, velit ad dicta? Remquia, animi, odit, quasi sit quasi."
                                 }
-                                div { width: "15%" }
+                                div { width: "30%" }
                             }
                         }
-                        div {
+
+                        div { class: "flex flex-col", gap: "6px",
                             H2 { "Get in touch" }
                             div {
                                 class: "flex flex-row",
                                 justify_content: "end",
-                                div { class: "flex flex-row",
+                                div { class: "flex flex-row", gap: "10px",
                                     P { "Gmail" }
                                     P { "Linkedin" }
                                     P { "Github" }
                                 }
                             }
                         }
+                    
                     }
                 }
+            
             }
         }
 
         footer {
+
             ThiccMainRow {
                 p {
                     "Cumqueipsum dolore nihil at, rem sunt. Quosratione, ipsum ad unde quo, ut? Sitquae vitae, laborum ad, cumque et. Nobissint dolores sed, illo dicta, sunt. "
                 }
             }
+        
         }
     }
 }
@@ -138,9 +159,9 @@ pub fn P(children: Element) -> Element {
 pub fn AvatarAndRings() -> Element {
     rsx! {
         div {
-            height: "400px",
-            width: "400px",
-            background_color: "red",
+            height: "350px",
+            width: "350px",
+            background_color: "#D9D9D9",
             class: "rounded-full",
         }
     }
@@ -184,10 +205,7 @@ pub fn UnderConstruction() -> Element {
         div {
             class: "flex flex-row w-full items-center justify-center",
             padding: "10px",
-            margin: "10px",
             background_color: "yellow",
-            border_color: "black",
-            border_width: "5px",
             img {
                 class: "w-10 h-10 rounded-full",
                 src: config::LOGO_RUST,
