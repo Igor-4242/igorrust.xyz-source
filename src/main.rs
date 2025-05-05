@@ -48,6 +48,18 @@ fn app() -> Element {
                             technologies! It is functional, fast, and portable. Dioxus can run on the web, on the desktop, and
                             on mobile and embedded platforms."
                         }
+                        p { class: "mb-8 leading-relaxed",
+
+                            "Dioxus is a new UI framework that makes it easy and simple to write cross-platform apps using web
+                            technologies! It is functional, fast, and portable. Dioxus can run on the web, on the desktop, and
+                            on mobile and embedded platforms."
+                        }
+                        p { class: "mb-8 leading-relaxed",
+
+                            "Dioxus is a new UI framework that makes it easy and simple to write cross-platform apps using web
+                            technologies! It is functional, fast, and portable. Dioxus can run on the web, on the desktop, and
+                            on mobile and embedded platforms."
+                        }
                         div { class: "flex justify-center",
                             button { class: "inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg",
                                 "Learn more"

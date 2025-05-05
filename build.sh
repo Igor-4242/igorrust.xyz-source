@@ -1,9 +1,10 @@
+cargo check &&
 dx build --release &&
 
-rm -rf ./igorrust.xyz-source/* &&
-cp -r ./target/dx/igorrust/release/web/public/* ../igorrust.xyz-source/ &&
+rm -rf ../Igor-4242.github.io/* &&
+cp -r ./target/dx/igorrust/release/web/public/* ../Igor-4242.github.io/ &&
 
-cd ../igorrust.xyz-source/ &&
+cd ../Igor-4242.github.io/ &&
 
 git add . &&
 git commit -m "update" &&
