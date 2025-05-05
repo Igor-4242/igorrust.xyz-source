@@ -1,0 +1,21 @@
+[package]
+name = "igorrust"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+dioxus = { version = "0.6.3", features = ["web"] }
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
+# manganis = { path = "packages/manganis/manganis", version = "0.6.2" }
+# dioxus = { path = "packages/dioxus", version = "0.6.2" }
