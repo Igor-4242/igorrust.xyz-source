@@ -2,7 +2,7 @@
 
 use dioxus::prelude::*;
 
-use crate::config;
+use crate::{config, math};
 
 #[component]
 pub fn MainCard() -> Element {
@@ -27,7 +27,6 @@ pub fn MainCard() -> Element {
                     }
                 }
             }
-        
         }
 
         section {
@@ -90,10 +89,8 @@ pub fn MainCard() -> Element {
                                 }
                             }
                         }
-                    
                     }
                 }
-            
             }
         }
 
@@ -104,7 +101,6 @@ pub fn MainCard() -> Element {
                     "Cumqueipsum dolore nihil at, rem sunt. Quosratione, ipsum ad unde quo, ut? Sitquae vitae, laborum ad, cumque et. Nobissint dolores sed, illo dicta, sunt. "
                 }
             }
-        
         }
     }
 }
@@ -173,6 +169,7 @@ pub fn NavLink(href: Option<String>, children: Element) -> Element {
 #[component]
 pub fn AvatarAndRings() -> Element {
     const STEP: f32 = 60.0;
+    const OFFSET: isize = 5;
 
     rsx! {
         div {
@@ -181,17 +178,22 @@ pub fn AvatarAndRings() -> Element {
             width: "400px",
             position: "relative",
 
-            for i in 2..10 {
-                div {
-                    position: "absolute",
-                    height: format!("{}px", STEP * i as f32),
-                    width: format!("{}px", STEP * i as f32),
-                    background_color: if i as f32 % 2.0 == 0.0 { "black" } else { "#D9D9D9" },
-                    class: "rounded-full",
-                    z_index: i * -1,
+            for i in 0..15 {
+                {
+                    let i: isize = OFFSET + i;
+                    rsx! {
+                        div {
+                            position: "absolute",
+                            height: format!("{}px", STEP * i as f32),
+                            width: format!("{}px", STEP * i as f32),
+                            background_color: if i as f32 % 2.0 == 0.0 { "black" } else { "#D9D9D9" },
+                            class: "rounded-full",
+                            z_index: i * -1,
+                            opacity: math::map_range(0.0, 15.0, i as f32, 1.0, 0.0),
+                        }
+                    }
                 }
             }
-        
         }
     }
 }

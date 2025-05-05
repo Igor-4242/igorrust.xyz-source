@@ -9,6 +9,8 @@ pub use config::*;
 mod routes;
 pub use routes::*;
 
+mod math;
+
 fn main() {
     dioxus::launch(app);
 }

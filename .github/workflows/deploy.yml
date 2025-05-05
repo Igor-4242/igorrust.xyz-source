@@ -58,8 +58,7 @@ jobs:
         git fetch
         git config pull.ff only       
         git pull origin main
-        git rebase
-        # git push --force origin main
+        git push origin main --force
 
     - name: Clean up
       run: cd -
